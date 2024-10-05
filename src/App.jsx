@@ -89,6 +89,22 @@ export default function App() {
     setPlayers(players.map((player, j) => i === j ? { ...player, ...randomizeStats(template(player), {}) } : player))
   }
 
+  const downloadTemplate = () => {
+    const template = {
+      name, color,
+      players: players.map(({ name, face, position, star, move, dribble, shoot, steal, pass }) => (
+        { name, face, position, star, move, dribble, shoot, steal, pass }
+      ))
+    }
+    const blob = new Blob([YAML.dump(template)], { type: 'application/yaml' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'template.yaml'
+    a.click()
+  }
+  const downloadPDF = () => {}
+
   return (
     <div className="App">
       <Menu inverted>
@@ -108,6 +124,8 @@ export default function App() {
                     <TableHeaderCell>
                       <div className='ui right aligned'>
                         <Button size="mini" icon='trash' onClick={() => setZipFile(null)} color='red' />
+                        <Button size="mini" icon='download' onClick={downloadTemplate} content="Template" />
+                        <Button size="mini" icon='download' onClick={downloadPDF} color='green' content="PDF" />
                       </div>
                     </TableHeaderCell>
                   </TableRow>
