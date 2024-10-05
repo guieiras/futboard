@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'json'
+gem 'noaccent'
+gem 'prawn'
+gem 'puma'
+gem 'sinatra'
+gem 'rmagick'
+gem 'rubyzip'
+gem 'yaml'
