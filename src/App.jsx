@@ -21,6 +21,7 @@ export default function App() {
   const logoRef = React.useRef(null)
   const [players, setPlayers] = React.useState([])
   const [zipFile, setZipFile] = React.useState(null)
+  const [isDownloading, setIsDownloading] = React.useState(false)
 
   const label = (color) => ({ color, empty: true, circular: true })
   const playerPositions = [
@@ -103,7 +104,30 @@ export default function App() {
     a.download = 'template.yaml'
     a.click()
   }
-  const downloadPDF = () => {}
+  const downloadPDF = () => {
+    setIsDownloading(true)
+    const formData = new FormData()
+    formData.append('name', name)
+    formData.append('color', color)
+    formData.append('players', JSON.stringify(
+      players.map(({ name, face, position, star, move, dribble, shoot, pass, steal }) => (
+        { name, face, position, star, move, dribble, shoot, pass, steal }
+      )
+    )))
+    formData.append('images', zipFile, 'images.zip')
+    formData.append('background', backgroundFile, 'background.png')
+    formData.append('logo', logoFile, 'logo.png')
+
+    fetch('/generate', { method: 'POST', body: formData })
+      .then(res => res.blob())
+      .then(data => {
+        const a = document.createElement("a");
+        a.href = window.URL.createObjectURL(data);
+        a.download = `${name.toLowerCase()}.pdf`;
+        setIsDownloading(false)
+        a.click();
+      })
+  }
 
   return (
     <div className="App">
@@ -125,7 +149,7 @@ export default function App() {
                       <div className='ui right aligned'>
                         <Button size="mini" icon='trash' onClick={() => setZipFile(null)} color='red' />
                         <Button size="mini" icon='download' onClick={downloadTemplate} content="Template" />
-                        <Button size="mini" icon='download' onClick={downloadPDF} color='green' content="PDF" />
+                        <Button size="mini" icon='download' onClick={downloadPDF} disabled={!(zipFile && backgroundFile && logoFile)} color='green' content="PDF" loading={isDownloading} />
                       </div>
                     </TableHeaderCell>
                   </TableRow>
