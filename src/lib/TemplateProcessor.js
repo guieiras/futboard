@@ -1,10 +1,10 @@
 const POSITION_STATS = {
   'GL': { move: [1, 0, 0, 0], dribble: 0, shoot: [2], pass: [17], steal: [2] },
-  'GL+': { move: [1, 0, 0, 0], dribble: 0, shoot: [3], pass: [17], steal: [2, 3] },
-  'DL': { move: [0, 0, 1, 0], dribble: 0, shoot: [2, 3, 4], pass: [14], steal: [2, 3, 4] },
+  'GL+': { move: [1, 0, 0, 0], dribble: 0, shoot: [3], pass: [17], steal: [2] },
+  'DL': { move: [0, 0, 1, 0], dribble: 0, shoot: [2, 3, 4], pass: [14], steal: [3] },
   'DL+': { move: [0, 0, 1, 0], dribble: 0, shoot: [3, 4, 5], pass: [14, 17], steal: [3, 4] },
-  'DF': { move: [0, 1, 0, 0], dribble: 0, shoot: [1, 2], pass: [11], steal: [4, 5] },
-  'DF+': { move: [0, 0.9, 0.1, 0], dribble: 0, shoot: [1, 2], pass: [11], steal: [5, 6] },
+  'DF': { move: [0, 1, 0, 0], dribble: 0, shoot: [1, 2], pass: [11], steal: [5] },
+  'DF+': { move: [0, 1, 0, 0], dribble: 0, shoot: [1, 2], pass: [11], steal: [6] },
   'MD': { move: [0, 1, 0, 0], dribble: 0, shoot: [4, 5], pass: [11], steal: [3, 4] },
   'MD+': { move: [0, 0.9, 0.1, 0], dribble: 0, shoot: [5, 6], pass: [11, 14], steal: [3, 4, 5] },
   'MC': { move: [0, 1, 0, 0], dribble: 0, shoot: [4, 5], pass: [14], steal: [2, 3, 4] },
@@ -16,7 +16,7 @@ const POSITION_STATS = {
   'AL': { move: [0, 0, 1, 0], dribble: 0.5, shoot: [7, 8], pass: [14], steal: [1] },
   'AL+': { move: [0, 0, 0.2, 0.8], dribble: 0.7, shoot: [8, 9], pass: [14], steal: [1] },
   'AC': { move: [0, 0.5, 0.5, 0], dribble: 0.5, shoot: [8, 9], pass: [14], steal: [1] },
-  'AC+': { move: [0, 0.2, 0.4, 0.4], dribble: 0.6, shoot: [9, 10], pass: [14], steal: [1] },
+  'AC+': { move: [0, 0, 0.5, 0.5], dribble: 0.6, shoot: [9, 10], pass: [14], steal: [1] },
   'SA': { move: [0, 0, 1, 0], dribble: 0.5, shoot: [8], pass: [14], steal: [1] },
   'SA+': { move: [0, 0, 1, 0], dribble: 0.6, shoot: [9], pass: [14], steal: [1] }
 }

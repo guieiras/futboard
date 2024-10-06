@@ -264,7 +264,7 @@ export default function App() {
                       </Table.Cell>
                       <Table.Cell>
                         <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
-                          <Slider value={player.shoot} min={0} max={12} onChange={changePlayerSlider('shoot', i)} />
+                          <Slider value={player.shoot} min={0} max={10} onChange={changePlayerSlider('shoot', i)} />
                           <Label size='mini'>{player.shoot}</Label>
                         </div>
                       </Table.Cell>
@@ -276,7 +276,7 @@ export default function App() {
                       </Table.Cell>
                       <Table.Cell>
                         <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
-                          <Slider value={player.steal} min={0} max={12} onChange={changePlayerSlider('steal', i)} />
+                          <Slider value={player.steal} min={0} max={8} onChange={changePlayerSlider('steal', i)} />
                           <Label size='mini'>{player.steal}</Label>
                         </div>
                       </Table.Cell>
