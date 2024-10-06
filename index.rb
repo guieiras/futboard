@@ -12,6 +12,8 @@ Player = Struct.new(:name, :position, :face, :dribble, :move, :shoot, :pass, :st
 Team = Struct.new(:name, :background, :color, :logo)
 
 set :public_folder, __dir__ + '/build'
+set :environment, :production
+set :bind, '0.0.0.0'
 
 get '/' do
   send_file File.join(settings.public_folder, 'index.html')
